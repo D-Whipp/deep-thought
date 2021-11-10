@@ -5,6 +5,8 @@ import {
   createHttpLink,
 } from "@apollo/client";
 
+import { setContext } from "@apollo/client/link/context";
+
 // imported during 21.4.3
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
@@ -21,19 +23,24 @@ import SingleThought from "./pages/SingleThought";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 
-// You swapped this
-// const httpLink = createHttpLink({
-//   uri: "http://localhost:3001/graphql",
-// });
-
 // for this
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem("id_token");
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    },
+  };
+});
 // and got an error
 
 const client = new ApolloClient({
-  link: httpLink,
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
@@ -46,19 +53,13 @@ function App() {
           {/* <Home /> */}
           <div className="container">
             <Routes>
-              {/* the problem is here, line 46 renders correctly 
-              but these following routes do not. I need to fix the follow
-              routes to get them to render. 
-              watch a youtube video on react-router-dom
-              routes/route tutorial
-              also the module says to use Switch and not Routes
-              but as of v6 i'm supposed to use Routes */}
               <Route path="/" element={<Home />} />
               <Route exact path="/login" element={<Login />} />
               <Route exact path="/signup" element={<Signup />} />
-              <Route exact path="/profile/:username?" element={<Profile />} />
+              <Route exactk path="/profile" element={<Profile />} />
               <Route exact path="/thought/:id" element={<SingleThought />} />
               <Route exact path="*" element={<NoMatch />} />
+              {/* <Route exact path="*" element={<Profile />} /> */}
             </Routes>
           </div>
           <Footer />
