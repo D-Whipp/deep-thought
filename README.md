@@ -44,6 +44,6 @@ SOFTWARE.
 
 ## Badges
 
-![apollo client]()
+![apollo client](https://img.shields.io/badge/apollo-3.4.16-brightgreen)
 ![react](https://img.shields.io/badge/react-17.0.2-lightblue)
-![graphql]()
+![graphql](https://img.shields.io/badge/graphql-16.0.1-orange)
