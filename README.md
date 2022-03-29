@@ -4,7 +4,7 @@
 
 ## Description
 
-Welcome to Deep Thoughts. This is a follow along module assignment teaching me all about Full-Stack development.
+Welcome to Deep Thoughts. This is a follow along module assignment teaching me all about Full-Stack development by building a message board.
 
 ## Installation
 
@@ -43,3 +43,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ## Badges
+
+![apollo client]()
+![react](https://img.shields.io/badge/react-17.0.2-lightblue)
+![graphql]()
