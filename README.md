@@ -6,9 +6,17 @@
 
 Welcome to Deep Thoughts. This is a follow along module assignment teaching me all about Full-Stack development.
 
+## Installation
+
+This app is not deployed. To use this app you must first download the repository on your local machine. Using your terminal, navigate to the projects root directoy and run "npm run develop". This will launch the app in your browser using the local host.
+
 ## Usage
 
+Once you've launched the app on your machine you can create a new user and leave a comment.
+
 ## Credits
+
+[University of Arizona Coding Bootcamp](https://bootcamp.ce.arizona.edu/coding/)
 
 ## License
 
