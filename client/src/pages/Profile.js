@@ -20,6 +20,7 @@ const Profile = (props) => {
   });
 
   const user = data?.me || data?.user || {};
+  console.log("user.thoughts", user.thoughts)
 
   const [addFriend] = useMutation(ADD_FRIEND);
 
